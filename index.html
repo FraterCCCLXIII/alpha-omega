@@ -724,6 +724,26 @@
             }
         }
 
+        .intro-section {
+        /* border-bottom: 1px solid rgba(214, 152, 40, 0.2); */
+    }
+    
+    @media (max-width: 768px) {
+        .intro-section {
+            padding-top: 6rem;
+            padding-bottom: 3rem;
+        }
+        
+        .intro-content h2 {
+            font-size: 2rem !important;
+        }
+        
+        .intro-content p {
+            font-size: 1.1rem !important;
+            padding: 0 1rem;
+        }
+    }
+
         .mentorship-image {
     flex: 1;
     min-width: 400px;
@@ -750,7 +770,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 1000;
+      z-index: 2000; /* Increased to cover nav (was 1000) */
       opacity: 0;
       visibility: hidden;
       transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -765,6 +785,8 @@
       background-color: var(--light-color);
       width: 90%;
       max-width: 600px;
+      max-height: 90vh; /* Added for mobile height */
+      overflow-y: auto; /* Added scroll for small screens */
       border-radius: 18px;
       overflow: hidden;
       box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
@@ -854,6 +876,7 @@
       opacity: 1;
     }
     
+    /* Floating button - hide on mobile */
     .subscribe-button {
       position: fixed;
       bottom: 30px;
@@ -862,18 +885,39 @@
     }
     
     @media (max-width: 768px) {
+      .subscribe-button {
+        display: none;
+      }
+    }
+
+        /* Mobile-specific modal adjustments */
+        @media (max-width: 768px) {
       .modal-container {
         width: 95%;
+        max-height: 85vh; /* Slightly smaller on mobile */
+      }
+      
+      .modal-image {
+        height: 200px; /* Reduced image height on mobile */
+      }
+      
+      .modal-content {
+        padding: 1.5rem;
       }
       
       .modal-content h2 {
         font-size: 1.5rem;
       }
       
+      .subscribe-button {
+        display: none; /* Hide floating button on mobile */
+      }
+
       .subscription-form iframe {
         height: auto;
       }
     }
+    
     /* Confirmation Modal Styles (already covered by your existing modal styles) */
 #confirmation-modal .modal-content h2 {
     color: var(--accent-color);
@@ -1005,11 +1049,29 @@
         <img src="img/paul4.jpg" alt="Meditation on the beach" style="width: 100%; height: 100%; object-fit: cover; position: absolute;">
         <div class="hero-overlay"></div>
         <div class="hero-content" style="margin-top: 30%;">
-            <h1>Put spirit first.</h1>
+            <h1>Put liberation first.</h1>
             <p>Explore spirituality, meditation, and transformative philosophy with Paul Bloch.</p>
             <a href="#about" class="btn">Learn more</a>
         </div>
     </section>
+
+    <!-- Introduction Section -->
+<section id="introduction" class="intro-section" style="padding-top: 8rem; padding-bottom: 4rem; background-color: #f9f7f5;">
+    <div class="container">
+        <div class="intro-content" style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <h3>
+                Finding our way to pure presence
+            </h3>
+            <p style="font-size: 1.2rem; line-height: 1.8; color: #333; margin-bottom: 2rem;">
+                I'm Paul Bloch - an artist and guide to embodied awakening and discovering your authentic expression. For over 20 years, I've been looking for the God who is already present beneath the stories of who we think we are. My approach connects ancient wisdom and religion with a contemporary understanding of life, consciousness, and the universe we live in. I believe heaven on earth is possible—but it will take our wholes selves to co-create it with God. My goal is to clarify The Way, to help make a spiritual realization accessible, and give confidence and support along the path. Real transformation often contradicts what we think we know about how to change. I'm here as a guide to point out the part of yourself that is always free—and always will be free.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <a href="#about" class="btn">My Story</a>
+                <a href="#philosophy" class="btn-outline">Core Teachings</a>
+            </div>
+        </div>
+    </div>
+</section>
 
     <section id="substack" class="substack-section">
         <div class="container">
